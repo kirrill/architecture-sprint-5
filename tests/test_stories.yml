@@ -2,90 +2,50 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: Path 1
   steps:
   - user: |
-      hello there!
+      Привет
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      Расскажите об архитектуре ПО
+    intent: ask_architecture
+  - action: utter_architecture_response
 
-- story: happy path 2
+- story: Path 2
   steps:
   - user: |
-      hello there!
+      Добрый день
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+      Что такое микросервисная архитектура?
+    intent: ask_architecture
+  - action: utter_architecture_response
   - user: |
-      bye-bye!
+      До свидания!
     intent: goodbye
   - action: utter_goodbye
 
-- story: sad path 1
+- story: Another path
   steps:
   - user: |
-      hello
+      Здорова
     intent: greet
   - action: utter_greet
   - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+      Как проектировать программное обеспечение?
+    intent: ask_architecture
+  - action: utter_architecture_response
   - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
-  steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+      Подробнее расскажи об этом
+    intent: request_info
+  - action: utter_ask_more
 
 - story: say goodbye
   steps:
   - user: |
-      bye-bye!
+      Пока
     intent: goodbye
   - action: utter_goodbye
-
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
